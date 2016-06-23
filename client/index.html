@@ -8,6 +8,7 @@
     <script src="bower_components/backbone/backbone.js"></script>
 
     <script src="data/data.js"></script>
+    <script src="env/config.js"></script>
 
     <script src="models/SongModel.js"></script>
     <script src="collections/Songs.js"></script>
@@ -22,6 +23,7 @@
     <script>
       $(function() {
         // set up model objects
+
         var library = new Songs(songData);
         var app = new AppModel({library: library});
 
@@ -31,6 +33,7 @@
         // put the view onto the screen
         $('body').append(appView.render());
       });
+
     </script>
   </body>
 </html>
