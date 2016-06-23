@@ -45,7 +45,6 @@ describe('PlayerView', function() {
 
     expect(appView.playerView.model).to.equal(firstSong);
     // Simulate the end of the first song
-    console.log(firstSong, appView.playerView.model, appView.playerView.el);
     $(appView.playerView.el).trigger('ended');
     expect(appView.playerView.model).to.equal(secondSong);
     // Simulate the end of the second song

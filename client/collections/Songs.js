@@ -2,17 +2,14 @@
 var Songs = Backbone.Collection.extend({
 
   model: SongModel,
-  initialize: function() {
-    this.loadSongs()
+  url: 'https://api.parse.com/1/classes/songs/',
+  parse: response => {
+    return response.results;
   },
-  loadSongs: function() {
-    $.ajax({
-      url: 'https://api.parse.com/1/classes/songs/',
-      type: 'GET', 
-      success: response => this.populateSongs(response)
-    });
-  },
-  populateSongs: function(response) {
-    console.log(response.results);
+  initialize() {
+    this.fetch({ success: () => {
+      //console.log('synced');
+      //this.trigger('sync');
+    }});
   }
 });
